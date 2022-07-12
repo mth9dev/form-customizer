@@ -17,3 +17,11 @@ export const questionTypes = {
     PARAGRAPH: 'paragraph',
     CHECKBOX: 'checkbox list',
 }
+
+export interface Preview {
+    questions: {
+        text: string;
+        type: 'paragraph' | 'checkbox list';
+        answer: string | string[]
+    }[]
+}
