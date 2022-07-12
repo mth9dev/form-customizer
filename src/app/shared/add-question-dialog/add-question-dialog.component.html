@@ -6,12 +6,12 @@
             <mat-select formControlName="type">
                 <mat-option *ngFor="let type of _questionTypes" [value]="type">{{type | titlecase}}</mat-option>
             </mat-select>
-            <mat-error *ngIf="_newQuestionForm?.get('type')!.getError('required')">required.</mat-error>
+            <mat-error *ngIf="_newQuestionForm?.get('type')!.getError('required')">Required</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="w-full">
             <mat-label>Type question here</mat-label>
             <input matInput formControlName="text">
-            <mat-error *ngIf="_newQuestionForm?.get('text')!.getError('required')">required.</mat-error>
+            <mat-error *ngIf="_newQuestionForm?.get('text')!.getError('required')">Required</mat-error>
         </mat-form-field>
         <!-- Checkbox List options -->
         <div *ngIf="_answerArray?.length" formArrayName="answer">
@@ -20,7 +20,7 @@
                 <mat-form-field [formGroupName]="i" appearance="fill" class="w-full">
                     <mat-label>Option {{i+1}}</mat-label>
                     <input matInput formControlName="option" placeholder="add answer option">
-                    <mat-error *ngIf="_answerArray.at(i).get('option')!.getError('required')">required.</mat-error>
+                    <mat-error *ngIf="_answerArray.at(i).get('option')!.getError('required')">Required</mat-error>
                 </mat-form-field>
             </div>
             <div class="mt-3 text-sky-500 text-sm">

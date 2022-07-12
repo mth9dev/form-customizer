@@ -41,6 +41,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   onPreview() {
+    this._form?.markAllAsTouched();
+    if(this._form?.invalid)
+      return;
+    
     console.log(this._questionArray)
   }
 
