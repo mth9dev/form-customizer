@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layout/layout.module';
 
 import { AppComponent } from './app.component';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AppComponent } from './app.component';
     NoopAnimationsModule,
 
     LayoutModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
