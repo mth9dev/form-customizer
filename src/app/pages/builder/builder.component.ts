@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { QuestionGroup } from 'src/app/models/question';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Question } from 'src/app/models/question';
 import { FormService } from 'src/app/services/form.service';
 import { SubSink } from 'subsink';
 
@@ -13,7 +13,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   private _subs = new SubSink();
   private _form: FormGroup | undefined;
-  private _questionGroup: QuestionGroup | undefined;
+  private _questionGroup: Question[] | undefined;
 
   constructor(
     private _formService: FormService,
