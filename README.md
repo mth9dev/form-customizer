@@ -1,7 +1,8 @@
 # FormCustomizer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
-
+User can create form's questions, configure question's answers (paragraph or checkbox list), answer to them, and preview the answers.
+## Hosted Url
+https://form-customizer.web.app/
 ## Prerequisite
 1. Node.js latest version
 
