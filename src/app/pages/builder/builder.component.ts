@@ -47,6 +47,11 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if(this._form?.invalid)
       return;
     
+    // Prevent navigation when there is no question added.
+    if(this._questionArray.controls.length == 0) {
+      return
+    }
+    
     this._router.navigate(['/form/preview'])
   }
 

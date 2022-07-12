@@ -32,7 +32,7 @@
             <mat-icon class="mr-2 text-base">add</mat-icon>
             <span class="mr-1">Add New Question</span>
         </button>
-        <button (click)="onPreview()" mat-raised-button color="primary">
+        <button (click)="onPreview()" mat-raised-button color="primary" [disabled]="_questionArray.controls.length == 0">
             <mat-icon class="mr-2 text-base">visibility</mat-icon>
             <span class="mr-1">Preview my answers</span>
         </button>
