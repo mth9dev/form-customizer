@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Question } from 'src/app/models/question';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { FormService } from 'src/app/services/form.service';
+import { AddQuestionDialogComponent } from 'src/app/shared/add-question-dialog/add-question-dialog.component';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -12,25 +13,25 @@ import { SubSink } from 'subsink';
 export class BuilderComponent implements OnInit, OnDestroy {
 
   private _subs = new SubSink();
-  private _form: FormGroup | undefined;
-  private _questionGroup: Question[] | undefined;
+  protected _form: FormGroup | undefined;
 
   constructor(
     private _formService: FormService,
+    private _dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
     this._subs.sink = this._formService.form$.subscribe(form => {
       this._form = form;
     });
-
-    this._subs.sink = this._formService.questionGroup$.subscribe(group => {
-      this._questionGroup = group;
-    });
   }
 
   ngOnDestroy(): void {
     this._subs.unsubscribe();
+  }
+
+  addNewQuestion() {
+    this._dialog.open(AddQuestionDialogComponent, { minWidth: 425 });
   }
 
 }
