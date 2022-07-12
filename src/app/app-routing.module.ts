@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutComponent } from './layout/layout.component';
 import { BuilderComponent } from './pages/builder/builder.component';
+import { PreviewComponent } from './pages/preview/preview.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'form/builder',
         component: BuilderComponent,
+      },
+      {
+        path: 'form/preview',
+        component: PreviewComponent,
       },
       {
         path: '**',

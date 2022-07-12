@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { questionTypes } from 'src/app/models/question';
 import { FormService } from 'src/app/services/form.service';
 import { AddQuestionDialogComponent } from 'src/app/shared/add-question-dialog/add-question-dialog.component';
@@ -24,6 +25,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   constructor(
     private _formService: FormService,
     private _dialog: MatDialog,
+    private _router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +47,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if(this._form?.invalid)
       return;
     
-    console.log(this._questionArray)
+    this._router.navigate(['/form/preview'])
   }
 
   getCheckboxFormArray(index: number) {
