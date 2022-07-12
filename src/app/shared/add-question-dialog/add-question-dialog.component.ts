@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { quesionTypes, QuestionFormGroup } from 'src/app/models/question';
+import { questionTypes, QuestionFormGroup } from 'src/app/models/question';
 import { FormService } from 'src/app/services/form.service';
 import { SubSink } from 'subsink';
 
@@ -14,7 +14,7 @@ export class AddQuestionDialogComponent implements OnInit {
 
   private _subs = new SubSink();
   protected _newQuestionForm: FormGroup<QuestionFormGroup> | undefined;
-  protected _questionTypes = Object.values(quesionTypes);
+  protected _questionTypes = Object.values(questionTypes);
 
   protected get _answerArray() {
     return (this._newQuestionForm?.get('answer') as FormArray) || undefined;
@@ -34,11 +34,11 @@ export class AddQuestionDialogComponent implements OnInit {
 
     this._subs.sink = this._newQuestionForm.get('type')!.valueChanges.subscribe(value => {
       switch (value) {
-        case quesionTypes.PARAGRAPH: {
+        case questionTypes.PARAGRAPH: {
           this._newQuestionForm!.setControl('answer', this._fb.control(null));
           break;
         }
-        case quesionTypes.CHECKBOX: {
+        case questionTypes.CHECKBOX: {
           // populated with one option.
           this._newQuestionForm!.setControl('answer', this._fb.array([this._fb.group({
             'option': [null, Validators.required],

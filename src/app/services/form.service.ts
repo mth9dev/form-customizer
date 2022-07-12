@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormArray, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
-import { CustomizableFormGroup, quesionTypes } from '../models/question';
+import { CustomizableFormGroup, questionTypes } from '../models/question';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class FormService {
     qForm.markAsUntouched();
     // add validation
     // if 'paragraph' type,
-    if(qForm.get('type')!.value == quesionTypes.PARAGRAPH) {
+    if(qForm.get('type')!.value == questionTypes.PARAGRAPH) {
       qForm.get('answer')?.addValidators(Validators.required);
     }
     let newform = (this._form.getValue());

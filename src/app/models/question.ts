@@ -13,7 +13,7 @@ export interface QuestionFormGroup {
     }>>;
 }
 
-export const quesionTypes = {
+export const questionTypes = {
     PARAGRAPH: 'paragraph',
     CHECKBOX: 'checkbox list',
 }

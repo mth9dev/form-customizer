@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { quesionTypes } from 'src/app/models/question';
+import { questionTypes } from 'src/app/models/question';
 import { FormService } from 'src/app/services/form.service';
 import { AddQuestionDialogComponent } from 'src/app/shared/add-question-dialog/add-question-dialog.component';
 import { SubSink } from 'subsink';
@@ -15,7 +15,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   private _subs = new SubSink();
   protected _form: FormGroup | undefined;
-  protected _questionTypes = quesionTypes;
+  protected _questionTypes = questionTypes;
 
   protected get _questionArray() {
     return this._form?.get('questions') as FormArray;
@@ -29,7 +29,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._subs.sink = this._formService.form$.subscribe(form => {
       this._form = form;
-      console.log(this._form)
     });
   }
 
