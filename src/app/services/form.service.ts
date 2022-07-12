@@ -25,4 +25,8 @@ export class FormService {
   constructor(
   ) { }
 
+  addQuestion(qForm : FormGroup) {
+    console.log(qForm)
+  }
+
 }

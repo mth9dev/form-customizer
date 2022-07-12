@@ -3,9 +3,11 @@
     <div  class="flex justify-center items-center w-full h-72 bg-gray-100">
         <span class="flex text-xl text-gray-500 font-medium decoration-8 p-6">No question. Please click  &nbsp; <span class="font-bold"> Add New Question </span> &nbsp; button to add them.</span>
     </div>
+    <div [formGroup]="_form!">
+    </div>
     <!-- footer -->
     <div class="mt-6 flex justify-between">
-        <button mat-stroked-button color="primary">
+        <button (click)="addNewQuestion()" mat-stroked-button color="primary">
             <mat-icon class="mr-2 text-base">add</mat-icon>
             <span class="mr-1">Add New Question</span>
         </button>
