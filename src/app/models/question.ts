@@ -22,6 +22,6 @@ export interface Preview {
     questions: {
         text: string;
         type: 'paragraph' | 'checkbox list';
-        answer: string | string[]
+        answer: string & string[]
     }[]
 }
