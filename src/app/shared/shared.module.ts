@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AddQuestionDialogComponent } from './add-question-dialog/add-question-dialog.component';
 
@@ -22,6 +23,7 @@ const materialModules = [
   MatButtonModule,
   MatDialogModule,
   MatSelectModule,
+  MatCheckboxModule,
 ]
 
 @NgModule({

@@ -1,9 +1,29 @@
 <div class="pt-6">
-    <!-- "No question" message -->
-    <div  class="flex justify-center items-center w-full h-72 bg-gray-100">
-        <span class="flex text-xl text-gray-500 font-medium decoration-8 p-6">No question. Please click  &nbsp; <span class="font-bold"> Add New Question </span> &nbsp; button to add them.</span>
-    </div>
     <div [formGroup]="_form!">
+        <!-- "No question" message -->
+        <div *ngIf="_questionArray!.length == 0" class="flex justify-center items-center w-full h-72 bg-gray-100">
+            <span class="flex text-xl text-gray-500 font-medium decoration-8 p-6">No question. Please click &nbsp; <span
+                    class="font-bold"> Add New Question </span> &nbsp; button to add them.</span>
+        </div>
+        <!-- Display questions -->
+        <div *ngIf="_questionArray!.length > 0" formArrayName="questions">
+            <div *ngFor="let question of _questionArray.controls; let i = index;" [formGroupName]="i">
+                <!-- Title -->
+                <div class="text-xl text-gray-500 font-medium decoration-8">{{question.get('text')?.value}}</div>
+                <!-- "paragraph" question -->
+                <mat-form-field *ngIf="question.get('type')?.value == _questionTypes.PARAGRAPH" appearance="outline"
+                    class="w-full mt-3">
+                    <textarea matInput formControlName="answer"></textarea>
+                </mat-form-field>
+                <!-- "checkbox" question -->
+                <div *ngIf="question.get('type')?.value == _questionTypes.CHECKBOX" formArrayName="answer"
+                    class="w-full flex flex-col mt-3">
+                    <div *ngFor="let option of getCheckboxFormArray(i).controls; let j = index;" [formGroupName]="j">
+                        <mat-checkbox formControlName="value">{{option.get('option')!.value}}</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- footer -->
     <div class="mt-6 flex justify-between">
@@ -11,7 +31,7 @@
             <mat-icon class="mr-2 text-base">add</mat-icon>
             <span class="mr-1">Add New Question</span>
         </button>
-        <button mat-raised-button color="primary">
+        <button (click)="onPreview()" mat-raised-button color="primary">
             <mat-icon class="mr-2 text-base">visibility</mat-icon>
             <span class="mr-1">Preview my answers</span>
         </button>
