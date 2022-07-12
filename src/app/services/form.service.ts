@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { Question } from '../models/question';
 
@@ -30,7 +30,6 @@ export class FormService {
   }
 
   constructor(
-    private _fb: FormBuilder,
   ) { }
 
 }
