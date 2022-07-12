@@ -12,3 +12,8 @@ export interface QuestionFormGroup {
         value: FormControl
     }>>;
 }
+
+export const quesionTypes = {
+    PARAGRAPH: 'paragraph',
+    CHECKBOX: 'checkbox list',
+}
